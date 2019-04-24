@@ -10,4 +10,5 @@ from classes import db_queries
 
 
 def test(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    data = db_queries.list_merch()
+    return render(request,"homepage.html",{'data':data})

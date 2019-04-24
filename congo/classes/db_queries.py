@@ -6,7 +6,7 @@ import random
 import requests
 
 def list_merch(request):
-	db = MYSQLdb.connect(host='HOST', user='USER', password='PASSWORD', port=3306, database='DATABASE')
+	db = MYSQLdb.connect(host='54.157.229.227', user='root', password='databaes', port=3306, database='Congo')
 	cur = db.cursor()
 	sql = "select * from merchandise"
 	cur.execute(sql)
@@ -24,7 +24,7 @@ def list_merch(request):
 '''
 
 def create_merch(request, name, price, desc, amt, url):
-	db = MYSQLdb.connect(host='HOST', user='USER', password='PASSWORD', port=3306, database='DATABASE')
+	db = MYSQLdb.connect(host='54.157.229.227', user='root', password='databaes', port=3306, database='Congo')
 	cur = db.cursor()
 	rand_id = random.randint(1000,60000)
 	sql = "insert into merchandise values("+rand_id+", "+name+", "+price+", "+desc+ ", "+amt + ", "+ url + ")"

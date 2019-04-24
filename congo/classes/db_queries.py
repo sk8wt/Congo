@@ -23,11 +23,20 @@ def list_merch(request):
 	{%endfor%}
 '''
 
-def create_merch(request, name, price, desc, amt, url):
+def create_merch(request, name, price, desc, rating, url):
 	db = MYSQLdb.connect(host='54.157.229.227', user='root', password='databaes', port=3306, database='congo')
 	cur = db.cursor()
 	rand_id = random.randint(1000,60000)
-	sql = "insert into merchandise values("+rand_id+", "+name+", "+price+", "+desc+ ", "+amt + ", "+ url + ")"
+	sql = "insert into merchandise values("+rand_id+", "+name+", "+price+", "+desc+ ", "+rating + ", "+ url + ")"
+	cur.execute(sql)
+	db.commit()
+	db.close()
+	return redirect('home')
+
+def edit_merch(request, m_id, name, price, desc, rating, url):
+	db = MYSQLdb.connect(host='54.157.229.227', user='root', password='databaes', port=3306, database='congo')
+	cur = db.cursor()
+	sql = "update merchandise set m_name="+name+", m_price="+price+", m_desc="+desc+ ",m_rating= "+rating + ", merchandise_image="+ url + " where merchandise_id=" + m_id
 	cur.execute(sql)
 	db.commit()
 	db.close()

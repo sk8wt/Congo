@@ -5,8 +5,11 @@ from django.http import HttpResponseRedirect
 import random
 import requests
 
+def get_connection():
+	return MySQLdb.connect(host='54.157.229.227',user= 'root',password='databaes',port=3306, database = 'congo')
+
 def list_merch(request):
-	db = MYSQLdb.connect(host='54.157.229.227', user='root', password='databaes', port=3306, database='congo')
+	db = get_connection() #MYSQLdb.connect(host='54.157.229.227', user='root', password='databaes', port=3306, database='congo')
 	cur = db.cursor()
 	sql = "select * from merchandise"
 	cur.execute(sql)
@@ -24,7 +27,7 @@ def list_merch(request):
 '''
 
 def create_merch(request, name, price, desc, amt, url):
-	db = MYSQLdb.connect(host='54.157.229.227', user='root', password='databaes', port=3306, database='congo')
+	db = get_connection() #MYSQLdb.connect(host='54.157.229.227', user='root', password='databaes', port=3306, database='congo')
 	cur = db.cursor()
 	rand_id = random.randint(1000,60000)
 	sql = "insert into merchandise values("+rand_id+", "+name+", "+price+", "+desc+ ", "+amt + ", "+ url + ")"

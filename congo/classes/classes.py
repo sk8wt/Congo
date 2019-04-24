@@ -1,12 +1,13 @@
 
 class Merch:
-	name = "NONE"
-	price = 0
-	image = "NO LINK"
-	seller = "NONE"
-
-	def __init__(name, price, image, seller):
+	def __init__(self, name, price, desc, num_avail, img):
 		self.name = name
 		self.price=price
 		self.image=image
-		self.seller=seller
+		self.num_avail = num_avail
+		self.desc = desc
+
+class Merchant:
+	def __init__(self, name):
+		self.name = name
+		# TODO: put list of item IDs seller sells here.

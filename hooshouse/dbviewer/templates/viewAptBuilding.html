@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 style="text-align:center;"> Welcome to Hoos House Dashboard</h1>
+<div style = "width:600px;margin:0 auto;align:center">
+<p>
+  Look below to find information about apartment buildings in Charlottesville, as well as data about their available units and land lords. There is also some functionality that allows creation of buildings and deletion of existing ones if they have been torn down. User your power wisely. Many students rely on this database to get all the best data.
+</p>
+</div>
+<table class = 'table table-striped'>
+  <thead>
+  <tr>
+    <th scope = "col">
+      Building Name
+    </th>
+    <th scope = "col">
+      Address
+    </th>
+    <th scope = "col">
+      Number of Units
+    </th>
+    <th scope = "col">
+      Year Constructed
+    </th>
+    <th>
+      Delete
+    </th>
+  </tr>
+</thead>
+<tbody>
+
+{% for apt in data %}
+<tr>
+  <td>
+    {{apt.name}}
+  </td>
+<td>
+  {{apt.address}}
+</td>
+<td>
+  {{apt.units}}
+</td>
+<td>
+  {{apt.year}}
+</td>
+<td>
+  <button><a href = "/delete_apt/{{apt.address}}">Delete</a></button>
+</td>
+</tr>
+  {% endfor %}
+</tbody>
+</table>
+
+{% endblock %}

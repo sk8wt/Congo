@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 style="text-align:center;"> Welcome to Hoos House Dashboard</h1>
+<div style = "width:600px;margin:0 auto;align:center">
+</div>
+<table class = 'table table-striped'>
+  <thead>
+  <tr>
+    <th scope = "col">
+      Company Name
+    </th>
+    <th scope = "col">
+      Company Address
+    </th>
+    <th scope = "col">
+      Phone Number
+    </th>
+    <th scope = "col">
+      Email Address
+    </th>
+    <th scope = "col">
+      Apartment Address
+    </th>
+    <th>
+      Delete
+    </th>
+      <th>
+      Update
+    </th>
+  </tr>
+</thead>
+<tbody>
+
+{% for landlord in data %}
+<tr>
+<td>
+  {{landlord.company_name}}
+</td>
+<td>
+  {{landlord.office_address}}
+</td>
+<td>
+  {{landlord.phone_number}}
+</td>
+<td>
+  {{landlord.email_address}}
+</td>
+<td>
+  {{landlord.apt_address}}
+</td>
+<td>
+  <button><a href = "/maintains/delete/{{landlord.apt_address}}">Delete</a></button>
+</td>
+<td>
+  <button><a href = "/maintains/update/{{landlord.apt_address}}">Update</a></button>
+</td>
+</tr>
+  {% endfor %}
+</tbody>
+</table>
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#maintains").DataTable();
+});
+</script>
+
+{% endblock %}

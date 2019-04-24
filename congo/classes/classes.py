@@ -38,7 +38,7 @@ class Orders:
 class Reviews:
 	def __init__(self, id, data, ts, rating, merch_id):
 		self.id = id
-		self.data =
+		self.data = data
 		self.ts = ts
 		self.rating = rating
 		self.merch_id = merch_id

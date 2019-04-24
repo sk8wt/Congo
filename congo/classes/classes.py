@@ -9,9 +9,10 @@ class Merch:
 
 
 class Merchant:
-	def __init__(self, name):
+	def __init__(self, m_id, name, rating):
 		self.name = name
-		# TODO: put list of item IDs seller sells here.
+		self.m_id = m_id
+		self.rating = rating
 
 class Creditcard:
 	def __init__(self, cc_number, cc_name, cc_expDate, cc_secCode):

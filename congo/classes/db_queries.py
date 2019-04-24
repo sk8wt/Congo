@@ -11,14 +11,15 @@ def get_connection():
 def list_merch(request):
 	db = get_connection() #MYSQLdb.connect(host='54.157.229.227', user='root', password='databaes', port=3306, database='congo')
 	cur = db.cursor()
-	sql = "select * from merchandise"
+	sql = "select * from merchandise LIMIT 5"
 	cur.execute(sql)
 	merch = []
 	for row in cur.fetchall():
 		merch.append(Merch(row[1], row[2], row[3], row[4], row[5]))
 	db.close()
 	# Load the html for merch
-	# return render(request, template, {"merch": merch})
+	template = 'homepage.html'
+	return render(request, template, {"merch": merch})
 
 '''
 	{% for landloard in data%}
@@ -31,7 +32,7 @@ def create_merch(request, name, price, desc, rating, url):
 	db = get_connection() #MYSQLdb.connect(host='54.157.229.227', user='root', password='databaes', port=3306, database='congo')
 	cur = db.cursor()
 	rand_id = random.randint(1000,60000)
-	sql = "insert into merchandise values("+rand_id+", "+name+", "+price+", "+desc+ ", "+rating + ", "+ url + ")"
+	sql = "insert into merchandise values("+rand_id+", '"+name+"', "+price+", '"+desc+ "', "+rating + ", '"+ url + ")"
 	cur.execute(sql)
 	db.commit()
 	db.close()
@@ -40,7 +41,7 @@ def create_merch(request, name, price, desc, rating, url):
 def edit_merch(request, m_id, name, price, desc, rating, url):
 	db = get_connection()
 	cur = db.cursor()
-	sql = "update merchandise set m_name="+name+", m_price="+price+", m_desc="+desc+ ",m_rating= "+rating + ", merchandise_image="+ url + " where merchandise_id=" + m_id
+	sql = "update merchandise set m_name='"+name+"', m_price="+price+", m_desc='"+desc+ "', m_rating= "+rating + ", merchandise_image='"+ url + "' where merchandise_id=" + m_id
 	cur.execute(sql)
 	db.commit()
 	db.close()

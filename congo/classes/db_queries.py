@@ -1,9 +1,8 @@
-import mysql.connector
 import MySQLdb
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 import random
-import requests
+from classes import *
 
 def get_connection():
 	return MySQLdb.connect(host='54.157.229.227',user= 'root',password='databaes',port=3306, database = 'congo')
@@ -17,6 +16,7 @@ def list_merch(request):
 	for row in cur.fetchall():
 		merch.append(Merch(row[1], row[2], row[3], row[4], row[5]))
 	db.close()
+	return merch
 	# Load the html for merch
 	# return render(request, template, {"merch": merch})
 

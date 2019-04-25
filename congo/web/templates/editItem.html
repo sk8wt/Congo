@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>Congo</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+    </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand">Congo</a>
+
+
+      <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Login</a>
+            </li>
+        </ul>
+      </div>
+    </nav>
+<form class="form-horizontal" action="/profile/{{name}}/updateitem/{{id}}/" method="post">
+  {% csrf_token %}
+<fieldset>
+
+<!-- Form Name -->
+<legend>Update Item</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Itemname">Item Name</label>
+  <div class="col-md-4">
+  <input id="Itemname" name="Itemname" type="text"  class="form-control input-md" value="{{data.name}}">
+  </div>
+</div>
+
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="price">Price</label>
+  <div class="col-md-2">
+  <input id="price" name="price" type="text" value="{{data.price}}"class="form-control input-md" required="">
+
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="desc">Item Description</label>
+  <div class="col-md-4">
+    <textarea class="form-control" id="desc" name="desc">{{data.desc}}</textarea>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="img">Image URL</label>
+  <div class="col-md-2">
+  <input id="img" style="width:600" name="img" type="text" value="{{data.image}}"class="form-control input-md" required="">
+
+  </div>
+</div>
+<!-- Button -->
+<div class="form-group">
+  <div class="col-md-4">
+    <input type="submit" id="saveitem" name="saveitem" class="btn btn-success"></input>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+  </body>
+
+</html>

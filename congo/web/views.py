@@ -39,9 +39,14 @@ def create_new_merch(request, name):
 def delete_merch(request, name, id):
     db_queries.delete_merch(request,id)
     return redirect('profile',name=name)
-def delete_merch(request, name, id):
-    db_queries.delete_merch(request,id)
-    return redirect('profile',name=name)
 
 def update_merch(request, name, id):
-    return redirect('profile',name=name)
+    if request.method == 'POST':
+        price = int(request.POST['price'])
+        desc = request.POST['desc']
+        n = request.POST['Itemname']
+        img = request.POST['img']
+        db_queries.edit_merch(request,id,n,price,desc,img,name)
+        return redirect('profile',name=name)
+    data = db_queries.get_item(id)
+    return render(request,"editItem.html",{'data':data[0],'name':name, 'id':id})

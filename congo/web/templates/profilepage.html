@@ -35,10 +35,12 @@ body.margins{
 <div class="container">
 
 
-<a href="/profile/{{name}}/deleteitem/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Manage Listings</a>
+<div class="row justify-content-center">
+<a href="/profile/{{name}}/deleteitem/" class="btn btn-primary btn-lg btn-success active mr-3" role="button" aria-pressed="true">Manage Listings</a>
 
 
-<a href="/profile/{{name}}/newitem/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create New Listings</a>
+<a href="/profile/{{name}}/newitem/" class="btn btn-primary btn-lg btn-success active mr-3" role="button" aria-pressed="true">Create New Listings</a>
+</div>
 <hr>
 
 
@@ -64,9 +66,10 @@ body.margins{
 			</div> <!-- price-wrap.// -->
 
       <div class="row justify-content-center">
-        <a href="/profile/{{name}}/updateitem/{{l.id}}/" class="btn btn-sm btn-primary float-right">Update</a>
-        <a href="/profile/{{name}}/deleteitem/{{l.id}}/" class="btn btn-sm btn-primary float-right">Delete</a>
+        <a href="/profile/{{name}}/updateitem/{{l.id}}/" class="btn btn-sm btn-success mr-3"">Update</a>
+        <a href="/profile/{{name}}/deleteitem/{{l.id}}/" class="btn btn-sm btn-danger float-right">Delete</a>
       </div>
+      <br>
 		</div> <!-- bottom-wrap.// -->
 	</figure>
 </div> <!-- col // -->

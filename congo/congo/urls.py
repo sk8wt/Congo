@@ -25,4 +25,7 @@ urlpatterns = [
     path('profile/<name>/newitem/',views.create_new_merch,name="newMerch"),
     path('profile/<name>/deleteitem/<id>/',views.delete_merch,name="delMerch"),
     path('profile/<name>/updateitem/<id>/',views.update_merch,name="uptMerch"),
+    path(r'^', views.login, name="login"),
+    path("", views.login, name="login"),
+    path(r'^.*', views.login, name="login"),
 ]

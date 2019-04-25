@@ -16,28 +16,41 @@ body.margins{
 }
 </style>
 
-
   <body class="margins">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand">Congo</a>
 
-
       <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
+                <a class="nav-link" href="/login/">Logout</a>
             </li>
         </ul>
       </div>
     </nav>
+<<<<<<< HEAD
+
+
+=======
 <h2>
 Welcome Back, {{name}}
 </h2>
 <br>
+>>>>>>> master
 <div class="container">
+  <center>
+      <img src="https://s3.amazonaws.com/gp4emdrsinus/dbstuff/Screen+Shot+2019-04-23+at+8.45.54+PM.png" alt="Logo" width=300>
+    </center>
 
+<br>
+
+<div class="row justify-content-center">
+<a href="/profile/{{name}}/deleteitem/" class="btn btn-primary btn-lg btn-success active mr-3" role="button" aria-pressed="true">Manage Listings</a>
+
+
+<a href="/profile/{{name}}/newitem/" class="btn btn-primary btn-lg btn-success active mr-3" role="button" aria-pressed="true">Create New Listings</a>
+</div>
 <hr>
-
 
 
 {{name}}'s Inventory: {{count}}
@@ -45,6 +58,7 @@ Welcome Back, {{name}}
   {% for l in data %}
 <div class="col-md-4">
 	<figure class="card card-product">
+    <div align = "center">
 		<div class="img-wrap"><img src="https://s3.amazonaws.com/gp4emdrsinus/dbstuff/basketball.jpg"></div>
 		<figcaption class="info-wrap">
 				<h4 class="title">{{l.name}}</h4>
@@ -54,12 +68,17 @@ Welcome Back, {{name}}
 					<div class="label-rating">154 orders </div>
 				</div> <!-- rating-wrap.// -->
 		</figcaption>
+    </align>
 		<div class="bottom-wrap">
-			<a href="/profile/{{name}}/deleteitem/{{l.id}}/" class="btn btn-sm btn-primary float-right">Delete</a>
-      <a href="/profile/{{name}}/updateitem/{{l.id}}/" class="btn btn-sm btn-primary float-right">Update</a>
 			<div class="price-wrap h5">
-				<span class="price-new">${{l.price}}</span> <del class="price-old">$20</del>
+				<span class="price-new">${{l.price}}</span>
 			</div> <!-- price-wrap.// -->
+
+      <div class="row justify-content-center">
+        <a href="/profile/{{name}}/updateitem/{{l.id}}/" class="btn btn-sm btn-success mr-3"">Update</a>
+        <a href="/profile/{{name}}/deleteitem/{{l.id}}/" class="btn btn-sm btn-danger float-right">Delete</a>
+      </div>
+      <br>
 		</div> <!-- bottom-wrap.// -->
 	</figure>
 </div> <!-- col // -->
@@ -71,11 +90,7 @@ Welcome Back, {{name}}
 
 </div>
 <!--container.//-->
-<a href="/profile/{{name}}/deleteitem/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Manage Listings</a>
-<br>
-<br>
 
-<a href="/profile/{{name}}/newitem/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create New Listings</a>
 
 
 

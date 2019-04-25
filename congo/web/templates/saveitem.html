@@ -27,8 +27,9 @@
 <fieldset>
 
 <!-- Form Name -->
+<div class="col-md-4">
 <legend>Form Name</legend>
-
+</div>
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="Itemname">Item Name</label>
@@ -37,7 +38,6 @@
 
   </div>
 </div>
-
 
 
 <!-- Text input-->
@@ -56,6 +56,48 @@
     <textarea class="form-control" id="Itemdesc" name="Itemdesc">Enter a description</textarea>
   </div>
 </div>
+
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="imagelink">Image Link</label>
+  <div class="col-md-4">
+  <input id="imglink" id="imagename" name="price" type="text" placeholder="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xr/iphone-xr-white-select-201809?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1551226036668" class="form-control input-md" required="">
+<button onclick="myFunction()" type="button" id="uploadbtn" class="btn btn-outline-info">Upload</button>
+
+
+  </div>
+
+</div>
+
+<script type="text/javascript">
+  
+  function myFunction() {
+  var x = document.getElementById("imglink").value;
+
+  var img = document.createElement("img");
+  img.src = x;
+  img.height = 100; 
+  img.width = 100;
+
+    // document.getElementById("demo").innerHTML = "Hello World";
+
+
+   // var val = document.getElementById('imagename').value;
+
+   //          document.body.appendChild(val);
+
+
+  // alert(val)
+
+  document.body.appendChild(img);
+
+}
+
+
+</script>
+
 
 <!-- Button -->
 <div class="form-group">

@@ -16,6 +16,18 @@ def login(name):
 		merch.append(Merch(row[3],row[4], row[5], row[6], row[7], row[8]))
 	db.close()
 	return merch
+def get_item(id):
+	db = get_connection()
+	cur = db.cursor()
+	cur.execute("SELECT * FROM MERCHANDISE Where merchandise_id = '"+id+"';")
+	merch = []
+	for row in cur.fetchall():
+		#print(row[7])
+		merch.append(Merch(row[0],row[1], row[2], row[3], row[4], row[5]))
+	db.close()
+	return merch
+
+
 def get_id(name):
 	db = get_connection()
 	cur = db.cursor()
@@ -57,14 +69,25 @@ def create_merch(request, name, price, desc, rating, url, merch_name,merch_id):
 	db.close()
 	return redirect('profile',name=merch_name)
 
-def edit_merch(request, m_id, name, price, desc, rating, url):
+def edit_merch(request, m_id, name, price, desc, url,merch_name=None):
 	db = get_connection()
 	cur = db.cursor()
-	sql = "update merchandise set m_name='"+name+"', m_price="+price+", m_desc='"+desc+ "', m_rating= "+rating + ", merchandise_image='"+ url + "' where merchandise_id=" + m_id
+	sql = "update MERCHANDISE set m_name='"+name+"', m_price="+str(price)+", m_desc='"+desc+ "', merchandise_image='"+ url + "' where merchandise_id=" + str(m_id)
 	cur.execute(sql)
 	db.commit()
 	db.close()
-	return redirect('home')
+	#return redirect('home')
+
+def count_merch(name):
+	db = get_connection()
+	cur = db.cursor()
+	sql = "SELECT COUNT(*) FROM MERCHANT NATURAL JOIN MERCHANDISE WHERE merchant_name = '"+name+"';"
+	cur.execute(sql)
+	count = 0
+	for row in cur.fetchall():
+		count = row[0]
+	db.close()
+	return count
 
 def delete_merch(request, merch_id):
 	db = get_connection()

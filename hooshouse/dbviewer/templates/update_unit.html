@@ -1,9 +1,0 @@
-{% extends 'base.html' %}
-
-{% block content %}
-<form action="/units/update/{{unit.address}}/{{unit.apt_number}}" method="post">
-  {% csrf_token %}
-  {{ form }}
-  <input type="submit" value="OK">
-</form>
-{% endblock %}

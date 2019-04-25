@@ -32,7 +32,8 @@ def profile(request, name):
         id = db_queries.get_id(name)
         db_queries.create_merch(request,n, price, desc, 0,'',name, id)
     data = db_queries.login(name)
-    return render(request,"profilepage.html", {'data':data,'name':name})
+    count = db_queries.count_merch(name)
+    return render(request,"profilepage.html", {'data':data,'name':name, 'count':count})
 
 def create_new_merch(request, name):
     return render(request,"saveitem.html", {'name':name})

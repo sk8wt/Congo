@@ -83,6 +83,11 @@ def count_merch(name):
 	cur = db.cursor()
 	sql = "SELECT COUNT(*) FROM MERCHANT NATURAL JOIN MERCHANDISE WHERE merchant_name = '"+name+"';"
 	cur.execute(sql)
+	count = 0
+	for row in cur.fetchall():
+		count = row[0]
+	db.close()
+	return count
 
 def delete_merch(request, merch_id):
 	db = get_connection()

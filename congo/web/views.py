@@ -29,7 +29,7 @@ def profile(request, name):
         n = request.POST['Itemname']
         price = int(request.POST['price'])
         desc = request.POST['Itemdesc']
-        img = request.POST['imglnk']
+        img = request.POST['imglink']
         id = db_queries.get_id(name)
         db_queries.create_merch(request,n, price, desc, 0, img ,name, id)
     data = db_queries.login(name)

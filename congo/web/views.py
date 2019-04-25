@@ -29,8 +29,9 @@ def profile(request, name):
         n = request.POST['Itemname']
         price = int(request.POST['price'])
         desc = request.POST['Itemdesc']
+        img = request.POST['imglnk']
         id = db_queries.get_id(name)
-        db_queries.create_merch(request,n, price, desc, 0,'',name, id)
+        db_queries.create_merch(request,n, price, desc, 0, img ,name, id)
     data = db_queries.login(name)
     count = db_queries.count_merch(name)
     return render(request,"profilepage.html", {'data':data,'name':name, 'count':count})

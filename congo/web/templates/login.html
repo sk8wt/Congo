@@ -38,7 +38,10 @@ body.margins{
 </head>
 <body>
 
+  <center>
+
 <h2>Login Form</h2>
+</center>
 
 <form action="/login/" method ="post">
 
@@ -61,7 +64,9 @@ body.margins{
   </div>-->
   {% csrf_token %}
   {{form}}
+  <center>
   <input type="submit" value="OK">
+</center>
 </form>
 
 </body>

@@ -47,6 +47,7 @@ body.margins{
   {% for l in data %}
 <div class="col-md-4">
 	<figure class="card card-product">
+    <div align = "center">
 		<div class="img-wrap"><img src="https://s3.amazonaws.com/gp4emdrsinus/dbstuff/basketball.jpg"></div>
 		<figcaption class="info-wrap">
 				<h4 class="title">{{l.name}}</h4>
@@ -56,14 +57,16 @@ body.margins{
 					<div class="label-rating">154 orders </div>
 				</div> <!-- rating-wrap.// -->
 		</figcaption>
+    </align>
 		<div class="bottom-wrap">
-
 			<div class="price-wrap h5">
 				<span class="price-new">${{l.price}}</span>
 			</div> <!-- price-wrap.// -->
 
-      <a href="/profile/{{name}}/deleteitem/{{l.id}}/" class="btn btn-sm btn-primary float-right">Delete</a>
-      <a href="/profile/{{name}}/updateitem/{{l.id}}/" class="btn btn-sm btn-primary float-right">Update</a>
+      <div class="row justify-content-center">
+        <a href="/profile/{{name}}/updateitem/{{l.id}}/" class="btn btn-sm btn-primary float-right">Update</a>
+        <a href="/profile/{{name}}/deleteitem/{{l.id}}/" class="btn btn-sm btn-primary float-right">Delete</a>
+      </div>
 		</div> <!-- bottom-wrap.// -->
 	</figure>
 </div> <!-- col // -->

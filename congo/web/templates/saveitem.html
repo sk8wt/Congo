@@ -22,8 +22,8 @@
         </ul>
       </div>
     </nav>
-
-<form class="form-horizontal">
+<form class="form-horizontal" action="/profile/{{name}}/" method="post">
+  {% csrf_token %}
 <fieldset>
 
 <!-- Form Name -->
@@ -31,35 +31,28 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="Itemname">Item Name</label>  
+  <label class="col-md-4 control-label" for="Itemname">Item Name</label>
   <div class="col-md-4">
   <input id="Itemname" name="Itemname" type="text" placeholder="Nike Shoes" class="form-control input-md">
-    
-  </div>
-</div>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="quantity">Quantity</label>  
-  <div class="col-md-2">
-  <input id="quantity" name="quantity" type="text" placeholder="1" class="form-control input-md">
   </div>
 </div>
 
 
+
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="price">Price</label>  
+  <label class="col-md-4 control-label" for="price">Price</label>
   <div class="col-md-2">
   <input id="price" name="price" type="text" placeholder="$2" class="form-control input-md" required="">
-    
+
   </div>
 </div>
 
 <!-- Textarea -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="Itemdesc">Item Description</label>
-  <div class="col-md-4">                     
+  <div class="col-md-4">
     <textarea class="form-control" id="Itemdesc" name="Itemdesc">Enter a description</textarea>
   </div>
 </div>
@@ -67,7 +60,7 @@
 <!-- Button -->
 <div class="form-group">
   <div class="col-md-4">
-    <button id="saveitem" name="saveitem" class="btn btn-success">Save</button>
+    <input type="submit" id="saveitem" name="saveitem" class="btn btn-success"></input>
   </div>
 </div>
 

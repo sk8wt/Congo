@@ -1,9 +1,0 @@
-{% extends 'base.html' %}
-
-{% block content %}
-<form action="/create_tenant/" method="post">
-  {% csrf_token %}
-  {{ form }}
-  <input type="submit" value="OK">
-</form>
-{% endblock %}

@@ -20,4 +20,9 @@ from web import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ping/', views.test, name="test"),
+    path('login/', views.login, name="login"),
+    path('profile/<name>/',views.profile,name="profile"),
+    path('profile/<name>/newitem/',views.create_new_merch,name="newMerch"),
+    path('profile/<name>/deleteitem/<id>/',views.delete_merch,name="delMerch"),
+    path('profile/<name>/updateitem/<id>/',views.update_merch,name="uptMerch"),
 ]
